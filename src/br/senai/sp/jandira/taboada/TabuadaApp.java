@@ -1,14 +1,14 @@
 package br.senai.sp.jandira.taboada;
 
-import br.senai.sp.jandira.taboada.model.Taboada;
+import br.senai.sp.jandira.taboada.model.Tabuada;
 
-public class TaboadaApp {
+public class TabuadaApp {
     public static void main(String[] args) {
 
         System.out.println("****INICIANDO APLICATIVO****");
 
-        Taboada taboada = new Taboada();
-        taboada.coletarDados();
+        Tabuada tabuada = new Tabuada();
+        tabuada.coletarDados();
 
     }
 }

@@ -2,40 +2,66 @@ package br.senai.sp.jandira.taboada.model;
 
 import java.util.Scanner;
 
-public class Taboada {
+public class Tabuada {
 
-    int[] multiplicandos = new int[1];
-    int[] multiplicadores = new int[2];
-    int[] produtos = new int[100];
+    public int multiplicando;
+    public int multiplicadorInicial;
+    public int multiplicadorFinal;
+    public String[] tabuada;
 
     public void coletarDados() {
 
         Scanner leitor = new Scanner(System.in);
 
-        System.out.print("Digite o multiplicando: ");
-        multiplicandos[0] = leitor.nextInt();
+        System.out.print("Digite o Número que será multiplicado?: ");
+        multiplicando = leitor.nextInt();
 
-        System.out.print("Digite o primeiro multiplicador: ");
-        multiplicadores[0] = leitor.nextInt();
+        System.out.print("Digite o multiplicador inicial: ");
+        multiplicadorInicial = leitor.nextInt();
 
-        System.out.print("Digite o ultimo multiplicador: ");
-        multiplicadores[1] = leitor.nextInt();
+        System.out.print("Qual é o valor do multiplicodr final?: ");
+        multiplicadorFinal = leitor.nextInt();
 
-        verificarDados();
+        calcularTabuada();
     }
 
-    public void verificarDados(){
+    public void calcularTabuada(){
+        //criando varialvél de apoio para ajudar a inverter os valores
+        int apoio = 0;
 
-        if ( multiplicadores[0] > multiplicadores[1]){
-            System.out.println("O primeiro multiplicador DEVE ser menor que o umtimo");
-            coletarDados();
-        }else{
-            realizarCalculo();
+        //garantindo que o incial será menor que o final
+        if (multiplicadorFinal < multiplicadorInicial){
+            apoio = multiplicadorFinal;
+            multiplicadorFinal = multiplicadorInicial;
+            multiplicadorInicial = apoio;
         }
+        int tamanho = multiplicadorFinal - multiplicadorInicial + 1;
+        tabuada = new String[tamanho];
+
+        int i = 0;
+        //criando looping
+        while (i < tamanho){
+            int produto = multiplicando * multiplicadorInicial;
+            tabuada[i] = multiplicando + " x " + multiplicadorInicial + " = " + produto;
+
+            multiplicadorInicial = multiplicadorInicial + 1;
+            i = i + 1;
+        }
+
+        exibirTabuada();
     }
 
-    public void realizarCalculo(){
+    public void exibirTabuada(){
 
-        produtos =
+        System.out.println("Resultado da sua taboada");
+
+        int i = 0;
+        while (i < tabuada.length){
+            System.out.println(tabuada[i]);
+            i++; //é a mesma coisa de i + 1
+        }
+
     }
+
+
 }
