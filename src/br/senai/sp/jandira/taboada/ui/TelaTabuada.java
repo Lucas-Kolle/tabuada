@@ -41,6 +41,8 @@ public class TelaTabuada extends Application {
 
         // adicionando o conteúdo do header
         Label labelTitulo = new Label("Tabuada");
+        labelTitulo.setStyle("-fx-text-fill: white; -fx-font-size: 20; -fx-font-weight: bold;");
+
         Label labelSubtitulo = new Label("Crie a tabuada que a sua imaginação mandar");
 
         // colocando label dentro do header
