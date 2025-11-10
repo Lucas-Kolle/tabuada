@@ -1,6 +1,8 @@
 package br.senai.sp.jandira.taboada.ui;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class TelaTabuada extends Application {
@@ -16,7 +18,17 @@ public class TelaTabuada extends Application {
         // adicionando titulo
         stage.setTitle("Tabuada");
 
+        // criando o root - componente principal
+        VBox root = new VBox();
+
+        // criando a cena e colocando o root nela
+        Scene scene = new Scene(root);
+
+        // colocando a cena no palco
+        stage.setScene(scene);
+
         // stage show é pra mostrar a tela
         stage.show();
+
     }
 }
